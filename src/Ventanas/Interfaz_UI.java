@@ -31,12 +31,12 @@ public class Interfaz_UI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jButton_salida = new javax.swing.JButton();
         jLabel_Usuario = new javax.swing.JLabel();
         jTextField_Usuario = new javax.swing.JTextField();
         jLabel_Contraseña = new javax.swing.JLabel();
         jPasswordField_Contraseña = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        jButton_ingresar = new javax.swing.JButton();
         jLabel_icono = new javax.swing.JLabel();
         jLabel_Fondo = new javax.swing.JLabel();
 
@@ -47,16 +47,16 @@ public class Interfaz_UI extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 17, 17));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("X");
-        jButton1.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_salida.setBackground(new java.awt.Color(255, 17, 17));
+        jButton_salida.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_salida.setText("X");
+        jButton_salida.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton_salida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_salidaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 40, 30));
+        getContentPane().add(jButton_salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 40, 30));
 
         jLabel_Usuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_Usuario.setText("Usuario:");
@@ -77,13 +77,13 @@ public class Interfaz_UI extends javax.swing.JFrame {
         jPasswordField_Contraseña.setText("Ingrese su contraseña");
         getContentPane().add(jPasswordField_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 330, -1));
 
-        jButton2.setText("Iniciar sesión");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_ingresar.setText("Iniciar sesión");
+        jButton_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_ingresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, -1, -1));
+        getContentPane().add(jButton_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, -1, -1));
 
         jLabel_icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_vector.png"))); // NOI18N
         getContentPane().add(jLabel_icono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 370));
@@ -94,17 +94,17 @@ public class Interfaz_UI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_salidaActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_salidaActionPerformed
 
     private void jTextField_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_UsuarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ingresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton_ingresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,8 +142,8 @@ public class Interfaz_UI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_ingresar;
+    private javax.swing.JButton jButton_salida;
     private javax.swing.JLabel jLabel_Contraseña;
     private javax.swing.JLabel jLabel_Fondo;
     private javax.swing.JLabel jLabel_Usuario;

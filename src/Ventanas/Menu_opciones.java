@@ -5,6 +5,7 @@
 package Ventanas;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JFrame;
 /**
  *
  * @author Andrés
@@ -22,7 +23,7 @@ public class Menu_opciones extends javax.swing.JFrame {
     public Image getIconimage(){
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/logo_poo.jpg"));
         return retValue;
-    }
+    } 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,25 +34,64 @@ public class Menu_opciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton_salida = new javax.swing.JButton();
+        jButton_salida1 = new javax.swing.JButton();
+        jLabel_opciones = new javax.swing.JLabel();
+        jLabel_usuario = new javax.swing.JLabel();
         jLabel_fondo = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton_salida.setBackground(new java.awt.Color(255, 17, 17));
+        jButton_salida.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_salida.setText("X");
+        jButton_salida.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton_salida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_salidaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton_salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 30));
+
+        jButton_salida1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton_salida1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_salida1.setText("-");
+        jButton_salida1.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton_salida1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_salida1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton_salida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 40, 30));
+
+        jLabel_opciones.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel_opciones.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_opciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/R.jpg"))); // NOI18N
+        getContentPane().add(jLabel_opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 400));
+
+        jLabel_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1155017.jpg"))); // NOI18N
+        getContentPane().add(jLabel_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, 200));
 
         jLabel_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1155032.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_fondo)
-        );
+        getContentPane().add(jLabel_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 540, 600));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 180, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_salidaActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton_salidaActionPerformed
+
+    private void jButton_salida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_salida1ActionPerformed
+        setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jButton_salida1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +129,12 @@ public class Menu_opciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_salida;
+    private javax.swing.JButton jButton_salida1;
     private javax.swing.JLabel jLabel_fondo;
+    private javax.swing.JLabel jLabel_opciones;
+    private javax.swing.JLabel jLabel_usuario;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
