@@ -38,7 +38,6 @@ public class Interfaz_UI extends javax.swing.JFrame {
         jPasswordField_Contraseña = new javax.swing.JPasswordField();
         jButton_ingresar = new javax.swing.JButton();
         jLabel_icono = new javax.swing.JLabel();
-        jLabel_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -87,9 +86,6 @@ public class Interfaz_UI extends javax.swing.JFrame {
 
         jLabel_icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_vector.png"))); // NOI18N
         getContentPane().add(jLabel_icono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 370));
-
-        jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1155032.jpg"))); // NOI18N
-        getContentPane().add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,7 +141,6 @@ public class Interfaz_UI extends javax.swing.JFrame {
     private javax.swing.JButton jButton_ingresar;
     private javax.swing.JButton jButton_salida;
     private javax.swing.JLabel jLabel_Contraseña;
-    private javax.swing.JLabel jLabel_Fondo;
     private javax.swing.JLabel jLabel_Usuario;
     private javax.swing.JLabel jLabel_icono;
     private javax.swing.JPasswordField jPasswordField_Contraseña;

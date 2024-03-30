@@ -36,9 +36,6 @@ public class Menu_opciones extends javax.swing.JFrame {
 
         jButton_salida = new javax.swing.JButton();
         jButton_salida1 = new javax.swing.JButton();
-        jLabel_opciones = new javax.swing.JLabel();
-        jLabel_usuario = new javax.swing.JLabel();
-        jLabel_fondo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -67,18 +64,6 @@ public class Menu_opciones extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton_salida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 40, 30));
-
-        jLabel_opciones.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel_opciones.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_opciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/R.jpg"))); // NOI18N
-        getContentPane().add(jLabel_opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 400));
-
-        jLabel_usuario.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1155017.jpg"))); // NOI18N
-        getContentPane().add(jLabel_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, 200));
-
-        jLabel_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1155032.jpg"))); // NOI18N
-        getContentPane().add(jLabel_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 540, 600));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 180, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 600));
 
@@ -131,9 +116,6 @@ public class Menu_opciones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_salida;
     private javax.swing.JButton jButton_salida1;
-    private javax.swing.JLabel jLabel_fondo;
-    private javax.swing.JLabel jLabel_opciones;
-    private javax.swing.JLabel jLabel_usuario;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
