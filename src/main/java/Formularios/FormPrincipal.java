@@ -20,7 +20,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         initComponents();
         
          Clases.CUsuarios objetoUsuario = new Clases.CUsuarios();
-         objetoUsuario.MostrarSexoCombo(cbsexo);
+         objetoUsuario.MostrarSexoCombo(cbIngreso);
          objetoUsuario.MostrarUsuarios(tbusuarios);
          
          txtrutaimagen.setEnabled(false);
@@ -35,21 +35,23 @@ public class FormPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        Documento = new javax.swing.JLabel();
+        ID1 = new javax.swing.JLabel();
+        Nombres = new javax.swing.JLabel();
+        Apellidos = new javax.swing.JLabel();
+        Ingreso = new javax.swing.JLabel();
+        Edad = new javax.swing.JLabel();
+        FechaInhg = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
+        txtDocumento = new javax.swing.JTextField();
         txtnombres = new javax.swing.JTextField();
         txtapellidos = new javax.swing.JTextField();
-        cbsexo = new javax.swing.JComboBox<>();
+        cbIngreso = new javax.swing.JComboBox<>();
         txtedad = new javax.swing.JTextField();
         dffechanacimiento = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         btnexplorar = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        ImagenSelec = new javax.swing.JLabel();
         txtrutaimagen = new javax.swing.JTextField();
         lblimagen = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
@@ -66,36 +68,47 @@ public class FormPrincipal extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuarios"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel1.setText("ID:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 27, 45, -1));
+        Documento.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        Documento.setText("Documento:");
+        jPanel1.add(Documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 90, -1));
 
-        jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel2.setText("Nombres:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 55, -1, -1));
+        ID1.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        ID1.setText("ID:");
+        jPanel1.add(ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 45, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel3.setText("Apellidos:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 83, -1, -1));
+        Nombres.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        Nombres.setText("Nombres:");
+        jPanel1.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel4.setText("Ingreso:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 111, -1, -1));
+        Apellidos.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        Apellidos.setText("Apellidos:");
+        jPanel1.add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel5.setText("Edad:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 145, -1, -1));
+        Ingreso.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        Ingreso.setText("Ingreso:");
+        jPanel1.add(Ingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel6.setText("Fecha de ingreso: ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 176, -1, -1));
-        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 24, 105, -1));
-        jPanel1.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 52, 105, -1));
-        jPanel1.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 80, 105, -1));
+        Edad.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        Edad.setText("Edad:");
+        jPanel1.add(Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
-        jPanel1.add(cbsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 108, 105, -1));
-        jPanel1.add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 142, 105, -1));
-        jPanel1.add(dffechanacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 170, 105, -1));
+        FechaInhg.setFont(new java.awt.Font("Roboto Black", 0, 13)); // NOI18N
+        FechaInhg.setText("Fecha de ingreso: ");
+        jPanel1.add(FechaInhg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, 20));
+
+        txtid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 12, 100, 20));
+        jPanel1.add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 100, 20));
+        jPanel1.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 42, 100, 20));
+        jPanel1.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 72, 100, 20));
+
+        jPanel1.add(cbIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 102, 100, 20));
+        jPanel1.add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 132, 100, 20));
+        jPanel1.add(dffechanacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 100, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 102, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Foto"));
@@ -110,9 +123,9 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jPanel2.add(btnexplorar, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 24, 168, -1));
 
-        jLabel7.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel7.setText("Imagen Seleccionada:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 53, -1, -1));
+        ImagenSelec.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        ImagenSelec.setText("Imagen Seleccionada:");
+        jPanel2.add(ImagenSelec, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 53, -1, -1));
         jPanel2.add(txtrutaimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 75, 174, -1));
         jPanel2.add(lblimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 103, 100, 95));
 
@@ -210,7 +223,7 @@ public class FormPrincipal extends javax.swing.JFrame {
 
     private void tbusuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbusuariosMouseClicked
         Clases.CUsuarios objetoUsuarios = new Clases.CUsuarios();
-        objetoUsuarios.Seleccionar(tbusuarios, txtid, txtnombres, txtapellidos, cbsexo, txtedad, dffechanacimiento, lblimagen);
+        objetoUsuarios.Seleccionar(tbusuarios, txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, lblimagen);
     }//GEN-LAST:event_tbusuariosMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -222,16 +235,16 @@ public class FormPrincipal extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         Clases.CUsuarios objetoUsuarios = new Clases.CUsuarios();
-        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbsexo, txtedad, dffechanacimiento, archivoseleccionado);
-        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbsexo, txtedad, dffechanacimiento, archivoseleccionado);
+        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
+        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
         objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen);
         objetoUsuarios.MostrarUsuarios(tbusuarios);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Clases.CUsuarios objetoUsuarios = new Clases.CUsuarios();
-        objetoUsuarios.AgregarUsuario(txtnombres, txtapellidos, cbsexo, txtedad, dffechanacimiento, archivoseleccionado);
-        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbsexo, txtedad, dffechanacimiento, archivoseleccionado);
+        objetoUsuarios.AgregarUsuario(txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
+        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
         objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen);
         objetoUsuarios.MostrarUsuarios(tbusuarios);
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -265,6 +278,10 @@ public class FormPrincipal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnexplorarActionPerformed
+
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidActionPerformed
 
     /**
      * @param args the command line argumento
@@ -302,25 +319,27 @@ public class FormPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Apellidos;
+    private javax.swing.JLabel Documento;
+    private javax.swing.JLabel Edad;
+    private javax.swing.JLabel FechaInhg;
+    private javax.swing.JLabel ID1;
+    private javax.swing.JLabel ImagenSelec;
+    private javax.swing.JLabel Ingreso;
+    private javax.swing.JLabel Nombres;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnexplorar;
-    private javax.swing.JComboBox<String> cbsexo;
+    private javax.swing.JComboBox<String> cbIngreso;
     private com.toedter.calendar.JDateChooser dffechanacimiento;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblimagen;
     private javax.swing.JTable tbusuarios;
+    private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtapellidos;
     private javax.swing.JTextField txtedad;
     private javax.swing.JTextField txtid;

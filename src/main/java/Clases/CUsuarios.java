@@ -109,13 +109,13 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
  
  String sql="";
  
- modelo.addColumn("Id");
+ modelo.addColumn("ID");
  modelo.addColumn("Nombres");
  modelo.addColumn("Apellidos");
  modelo.addColumn("Igreso");
- modelo.addColumn("edad");
+ modelo.addColumn("Edad");
  modelo.addColumn("F.ingreso"); 
- modelo.addColumn("foto");
+ modelo.addColumn("Foto");
  
  tablaTotalUsuarios.setModel(modelo);
     
