@@ -12,8 +12,12 @@ public class EMPRESA {
 
     public static void main(String[] args) {
         
-        Formularios.FormPrincipal objetoFormulario = new Formularios.FormPrincipal();
+        Formularios.LogIn Inicio = new Formularios.LogIn();
+        Inicio.setVisible(true);
+        Inicio.setLocationRelativeTo(null);
+        /*Formularios.FormPrincipal objetoFormulario = new Formularios.FormPrincipal();
         objetoFormulario.setVisible(true);
+        objetoFormulario.setLocationRelativeTo(null);*/
         
         
     }

@@ -15,7 +15,7 @@ public class CConexion {
     
     String usuario="root";
     String contraseña="";
-    String bd="bdusuarios";
+    String bd="bdusuarios1";
     String ip="127.0.0.1";
     String puerto="3306";
     String cadena ="jdbc:mysql://"+ip+":"+puerto+"/"+bd;
@@ -41,11 +41,10 @@ public class CConexion {
             if(conectar!= null && !conectar.isClosed()){
 
                 conectar.close();
-                JOptionPane.showMessageDialog(null, "conexion cerrada");
-        }
+            }
         
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo cerrar la conexion");
+
         }
     }
 }

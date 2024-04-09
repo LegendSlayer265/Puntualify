@@ -23,7 +23,6 @@ public class LogIn extends javax.swing.JFrame {
         Contratxt = new javax.swing.JPasswordField();
         BtnLogIn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,10 +63,6 @@ public class LogIn extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 390, 80, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogIn.jpg"))); // NOI18N
-        fondo.setText("jLabel1");
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 500));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,7 +102,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField Contratxt;
     private javax.swing.JTextField Usertxt;
     private javax.swing.JLabel Usuario;
-    private javax.swing.JLabel fondo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

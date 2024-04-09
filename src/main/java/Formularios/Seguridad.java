@@ -34,7 +34,7 @@ public class Seguridad extends javax.swing.JFrame {
         Passtxt1 = new javax.swing.JPasswordField();
         Passtxt2 = new javax.swing.JPasswordField();
         ButConf = new javax.swing.JButton();
-        Fondo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,35 +50,39 @@ public class Seguridad extends javax.swing.JFrame {
 
         ConfContra.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         ConfContra.setText("Confirmar contraseña");
-        jPanel1.add(ConfContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 150, -1));
+        jPanel1.add(ConfContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 150, -1));
 
         Usertxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsertxtActionPerformed(evt);
             }
         });
-        jPanel1.add(Usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 300, 20));
-        jPanel1.add(Passtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 238, 300, -1));
-        jPanel1.add(Passtxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 312, 300, 20));
+        jPanel1.add(Usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 300, 30));
+        jPanel1.add(Passtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 238, 300, 30));
+        jPanel1.add(Passtxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 312, 300, 30));
 
         ButConf.setBackground(new java.awt.Color(255, 102, 0));
         ButConf.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         ButConf.setText("Confirmar cambios");
         jPanel1.add(ButConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 390, 300, -1));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ConfSeguridad.jpg"))); // NOI18N
-        Fondo.setText("jLabel1");
-        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -5, 890, 500));
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(786, 460, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
         );
 
         pack();
@@ -88,17 +92,24 @@ public class Seguridad extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UsertxtActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Menu menuMain = new Menu();
+        menuMain.setVisible(true);
+        menuMain.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButConf;
     private javax.swing.JLabel ConfContra;
     private javax.swing.JLabel EstContra;
-    private javax.swing.JLabel Fondo;
     private javax.swing.JLabel NameUser;
     private javax.swing.JPasswordField Passtxt1;
     private javax.swing.JPasswordField Passtxt2;
     private javax.swing.JTextField Usertxt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
