@@ -31,33 +31,61 @@ public class MenuBien extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BotSalir.setBackground(new java.awt.Color(255, 255, 255));
         BotSalir.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        BotSalir.setText("X");
+        BotSalir.setForeground(new java.awt.Color(0, 0, 0));
+        BotSalir.setBorder(null);
+        BotSalir.setBorderPainted(false);
+        BotSalir.setContentAreaFilled(false);
+        BotSalir.setLabel("");
         BotSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(BotSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 20, 20));
+        jPanel1.add(BotSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 40, 60));
 
+        BotCreaPrfil.setBackground(new java.awt.Color(255, 255, 255));
         BotCreaPrfil.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        BotCreaPrfil.setForeground(new java.awt.Color(0, 0, 0));
         BotCreaPrfil.setText("Creacion de perfiles");
-        jPanel1.add(BotCreaPrfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 230, 40));
+        BotCreaPrfil.setBorderPainted(false);
+        BotCreaPrfil.setContentAreaFilled(false);
+        BotCreaPrfil.setFocusPainted(false);
+        jPanel1.add(BotCreaPrfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 230, 50));
 
+        BotADminPerf.setBackground(new java.awt.Color(255, 255, 255));
         BotADminPerf.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        BotADminPerf.setForeground(new java.awt.Color(0, 0, 0));
         BotADminPerf.setText("Administracion de perfiles");
-        jPanel1.add(BotADminPerf, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 230, 40));
+        BotADminPerf.setBorderPainted(false);
+        BotADminPerf.setContentAreaFilled(false);
+        BotADminPerf.setFocusPainted(false);
+        jPanel1.add(BotADminPerf, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 101, 230, 50));
 
+        BotAlerta.setBackground(new java.awt.Color(255, 255, 255));
         BotAlerta.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        BotAlerta.setForeground(new java.awt.Color(0, 0, 0));
         BotAlerta.setText("Alertas de inasistencia");
-        jPanel1.add(BotAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 230, 40));
+        BotAlerta.setBorder(null);
+        BotAlerta.setBorderPainted(false);
+        BotAlerta.setContentAreaFilled(false);
+        jPanel1.add(BotAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 238, 230, 50));
 
+        BotHistorial.setBackground(new java.awt.Color(255, 255, 255));
         BotHistorial.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        BotHistorial.setForeground(new java.awt.Color(0, 0, 0));
         BotHistorial.setText("Historial de asistencia");
-        jPanel1.add(BotHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 230, 40));
+        BotHistorial.setBorder(null);
+        BotHistorial.setBorderPainted(false);
+        jPanel1.add(BotHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 230, 50));
 
         BotSeguridad.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        BotSeguridad.setForeground(new java.awt.Color(0, 0, 0));
         BotSeguridad.setText("Configuracion seguridad");
+        BotSeguridad.setBorder(null);
+        BotSeguridad.setBorderPainted(false);
+        BotSeguridad.setContentAreaFilled(false);
         BotSeguridad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotSeguridadActionPerformed(evt);
@@ -65,10 +93,14 @@ public class MenuBien extends javax.swing.JFrame {
         });
         jPanel1.add(BotSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 230, 40));
 
-        BotRegistro.setBackground(new java.awt.Color(255, 102, 0));
+        BotRegistro.setBackground(new java.awt.Color(255, 109, 12));
         BotRegistro.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        BotRegistro.setForeground(new java.awt.Color(255, 255, 255));
         BotRegistro.setText("Comenzar registro de asistencia");
-        jPanel1.add(BotRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, 60));
+        BotRegistro.setBorder(null);
+        BotRegistro.setBorderPainted(false);
+        BotRegistro.setContentAreaFilled(false);
+        jPanel1.add(BotRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 190, 320, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MenuPrincipal.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");

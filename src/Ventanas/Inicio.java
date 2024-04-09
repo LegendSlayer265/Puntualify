@@ -4,6 +4,7 @@
  */
 package Ventanas;
 
+import Ventanas.MenuBien;
 import javax.swing.JOptionPane;
 /**
  * @author Alejandro Padilla
@@ -40,29 +41,51 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Usuario.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        Usuario.setForeground(new java.awt.Color(153, 153, 153));
         Usuario.setText("Usuario");
         jPanel1.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
         Contraseña.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        Contraseña.setForeground(new java.awt.Color(153, 153, 153));
         Contraseña.setText("Contraseña");
-        jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
 
+        TxtUsuario.setBackground(new java.awt.Color(216, 216, 216));
         TxtUsuario.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        TxtUsuario.setForeground(new java.awt.Color(0, 0, 0));
         TxtUsuario.setText("Ingrese su usuario");
+        TxtUsuario.setToolTipText("Ingrese su usuario");
+        TxtUsuario.setBorder(null);
+        TxtUsuario.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        TxtUsuario.setOpaque(true);
+        TxtUsuario.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        TxtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtUsuarioActionPerformed(evt);
+            }
+        });
         jPanel1.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 200, 250, 30));
 
+        Jpassword.setBackground(new java.awt.Color(219, 219, 219));
+        Jpassword.setForeground(new java.awt.Color(0, 0, 0));
         Jpassword.setText("jPasswordField1");
+        Jpassword.setBorder(null);
+        Jpassword.setOpaque(true);
         jPanel1.add(Jpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 272, 250, 30));
 
         ButLogin.setBackground(new java.awt.Color(255, 102, 0));
         ButLogin.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
+        ButLogin.setForeground(new java.awt.Color(255, 255, 255));
         ButLogin.setText("Iniciar Sesión");
+        ButLogin.setBorder(null);
+        ButLogin.setBorderPainted(false);
+        ButLogin.setContentAreaFilled(false);
         ButLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(ButLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 260, 30));
+        jPanel1.add(ButLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 270, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -115,6 +138,10 @@ public class Inicio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuario/Contrasena incorrecta");
         }
     }//GEN-LAST:event_ButLoginActionPerformed
+
+    private void TxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
