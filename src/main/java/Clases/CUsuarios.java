@@ -4,7 +4,7 @@
  */
 package Clases;
 
-
+import Clases.CConexion;
 import com.toedter.calendar.JDateChooser;
 import java.awt.HeadlessException;
 import java.awt.Image;
@@ -64,110 +64,105 @@ public class CUsuarios {
         }
     }
 
-    
-    
     public void  AgregarUsuario(JTextField nombres,JTextField apellidos,JComboBox combosexo,JTextField edad, JDateChooser fnacimiento, File foto ){
     
- CConexion objetoConexion = new CConexion();
+        CConexion objetoConexion = new CConexion();
  
-String consulta="INSERT INTO usuarios (nombres, apellidos, fkIngreso, edad, Fingreso, foto) VALUES (?, ?, ?, ?,?,?);";
+        String consulta="INSERT INTO usuarios (nombres, apellidos, fkIngreso, edad, Fingreso, foto) VALUES (?, ?, ?, ?,?,?);";
 
 
- try {
-     FileInputStream fis = new FileInputStream(foto);
+        try {
+            FileInputStream fis = new FileInputStream(foto);
+            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+            cs.setString(1, nombres.getText());
+            cs.setString(2, apellidos.getText());
      
-     CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-     cs.setString(1, nombres.getText());
-     cs.setString(2, apellidos.getText());
+            int idsexo= (int) combosexo.getClientProperty(combosexo.getSelectedItem());
      
-     int idsexo= (int) combosexo.getClientProperty(combosexo.getSelectedItem());
+            cs.setInt(3, idsexo);
+            cs.setInt(4, Integer.parseInt(edad.getText()));
      
-     cs.setInt(3, idsexo);
-     cs.setInt(4, Integer.parseInt(edad.getText()));
+            Date fechaSeleccionada = fnacimiento.getDate();
      
-     Date fechaSeleccionada = fnacimiento.getDate();
+            java.sql.Date fechaSQL = new java.sql.Date(fechaSeleccionada.getTime());
      
-     java.sql.Date fechaSQL = new java.sql.Date(fechaSeleccionada.getTime());
+            cs.setDate(5,fechaSQL);
      
-     cs.setDate(5,fechaSQL);
+            cs.setBinaryStream(6, fis,(int)foto.length());
      
-     cs.setBinaryStream(6, fis,(int)foto.length());
+             cs.execute();
      
-     cs.execute();
+            JOptionPane.showMessageDialog(null,"Se guardo el usuario correctamente");
+        } 
+        catch (HeadlessException | FileNotFoundException | NumberFormatException | SQLException e) {
+            JOptionPane.showMessageDialog(null,"Error al guardar, error: "+e.toString());
      
-     JOptionPane.showMessageDialog(null,"Se guardo el usuario correctamente");
- } catch (HeadlessException | FileNotFoundException | NumberFormatException | SQLException e) {
-     JOptionPane.showMessageDialog(null,"Error al guardar, error: "+e.toString());
-     
- }
-    }
+        }
+}
 
 public void MostrarUsuarios(JTable tablaTotalUsuarios){            
- Clases.CConexion objetoConexion = new Clases.CConexion();
- 
- DefaultTableModel modelo = new DefaultTableModel();
- 
- String sql="";
- 
- modelo.addColumn("ID");
- modelo.addColumn("Nombres");
- modelo.addColumn("Apellidos");
- modelo.addColumn("Igreso");
- modelo.addColumn("Edad");
- modelo.addColumn("F.ingreso"); 
- modelo.addColumn("Foto");
- 
- tablaTotalUsuarios.setModel(modelo);
     
-    sql = "SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, Ingreso.Ingreso, usuarios.edad, usuarios.Fingreso, usuarios.foto FROM usuarios INNER JOIN Ingreso ON usuarios.fkIngreso = Ingreso.id;";
+    Clases.CConexion objetoConexion = new Clases.CConexion();
  
- try {
-     Statement st = objetoConexion.estableceConexion().createStatement();
-     ResultSet rs = st.executeQuery(sql);
+    DefaultTableModel modelo = new DefaultTableModel();
+ 
+    String sql="";
+ 
+    modelo.addColumn("ID");
+    modelo.addColumn("Nombres");
+    modelo.addColumn("Apellidos");
+    modelo.addColumn("Igreso");
+    modelo.addColumn("Edad");
+    modelo.addColumn("F.ingreso"); 
+    modelo.addColumn("Foto");
+ 
+    tablaTotalUsuarios.setModel(modelo);
+    
+        sql = "SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, Ingreso.Ingreso, usuarios.edad, usuarios.Fingreso, usuarios.foto FROM usuarios INNER JOIN Ingreso ON usuarios.fkIngreso = Ingreso.id;";
+ 
+    try {
+        Statement st = objetoConexion.estableceConexion().createStatement();
+        ResultSet rs = st.executeQuery(sql);
      
-     while(rs.next()){
-     
-     String id = rs.getString("id");
-     String nombres = rs.getString("nombres");
-     String apellidos = rs.getString("apellidos");
-     String sexo = rs.getString("Ingreso");
-     String edad = rs.getString("edad");
-     
-     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy;");
-     java.sql.Date fechaSQL = rs.getDate("Fingreso");
-     String nuevaFecha = sdf.format(fechaSQL);
-     
-     byte [] imageBytes = rs.getBytes("foto");
-     Image foto = null;
-     
-     if (imageBytes !=null){
-     
-         try {
-             ImageIcon imageIcon = new ImageIcon(imageBytes);
-             foto= imageIcon.getImage();
-         } catch (Exception e) {
-             
-             JOptionPane.showMessageDialog(null,"Eror:"+ e.toString());
-         }
+        while(rs.next()){
          
-         modelo.addRow(new Object[]{id,nombres,apellidos,sexo,edad,nuevaFecha,foto});
-     }
+            String id = rs.getString("id");
+            String nombres = rs.getString("nombres");
+            String apellidos = rs.getString("apellidos");
+            String sexo = rs.getString("Ingreso");
+            String edad = rs.getString("edad");
      
-     tablaTotalUsuarios.setModel(modelo);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy;");
+            java.sql.Date fechaSQL = rs.getDate("Fingreso");
+            String nuevaFecha = sdf.format(fechaSQL);
      
- }    
- } catch (HeadlessException | SQLException e) {
+            byte [] imageBytes = rs.getBytes("foto");
+            Image foto = null;
      
-     JOptionPane.showMessageDialog(null,"Eror al mostrar usuarios, error:"+ e.toString());
- }
-    finally{
+            if (imageBytes !=null){
+     
+                try {
+                    ImageIcon imageIcon = new ImageIcon(imageBytes);
+                    foto= imageIcon.getImage();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null,"Eror:"+ e.toString());
+                }
+         
+                modelo.addRow(new Object[]{id,nombres,apellidos,sexo,edad,nuevaFecha,foto});
+            }
+     
+            tablaTotalUsuarios.setModel(modelo);
+        }    
+    } catch (HeadlessException | SQLException e) {
+     
+        JOptionPane.showMessageDialog(null,"Eror al mostrar usuarios, error:"+ e.toString());
+        
+    } finally{
  
-     objetoConexion.cerrarConexion();
- }
+        objetoConexion.cerrarConexion();
+    }
 }
  
-        
-    
    /* public void Seleccionar (JTable totalUsuarios, JTextField id,JTextField nombres,JTextField apellidos, JComboBox sexo, JTextField edad, JDateChooser fnacimiento,JTable foto){
        
         int fila = totalUsuarios.getSelectedRow();
@@ -283,32 +278,30 @@ public void ModificarUsuarios(JTextField id, JTextField nombres, JTextField apel
     } finally {
         objetoConexion.cerrarConexion();
     }
-
-
-    }
-     public void EliminarUsuario(JTextField id){
-     
-     CConexion objetoConexion = new CConexion();
-     
-     String consulta="DELETE FROM usuarios WHERE usuarios.id=?;";
-     
-         try {
-             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-             
-             cs.setInt(1,Integer.parseInt(id.getText()));
-             
-             cs.execute();
-             
-             JOptionPane.showMessageDialog(null,"Se elimino correctamente");
-             
-         } catch (HeadlessException | NumberFormatException | SQLException e) {
-             JOptionPane.showMessageDialog(null, "No se elimino correctamente, error"+e.toString());
-         } finally {
-             objetoConexion.cerrarConexion();
-         }
-
 }
-     public void limpriarCampos(JTextField id,JTextField nombres,JTextField apellidos,JTextField edad, JDateChooser Fingreso, JTextField rutaimagen,JLabel imagencontenido){
+    public void EliminarUsuario(JTextField id){
+     
+        CConexion objetoConexion = new CConexion();
+     
+        String consulta="DELETE FROM usuarios WHERE usuarios.id=?;";
+     
+        try {
+            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+             
+            cs.setInt(1,Integer.parseInt(id.getText()));
+             
+            cs.execute();
+             
+            JOptionPane.showMessageDialog(null,"Se elimino correctamente");
+             
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+             JOptionPane.showMessageDialog(null, "No se elimino correctamente, error"+e.toString());
+        } finally {
+             objetoConexion.cerrarConexion();
+        }
+    }
+    
+    public void limpriarCampos(JTextField id,JTextField nombres,JTextField apellidos,JTextField edad, JDateChooser Fingreso, JTextField rutaimagen,JLabel imagencontenido){
      id.setText("");
      nombres.setText("");
      apellidos.setText("");
@@ -319,6 +312,6 @@ public void ModificarUsuarios(JTextField id, JTextField nombres, JTextField apel
      rutaimagen.setText("");
      
      imagencontenido.setIcon(null);
-     }
+    }
 }
 
