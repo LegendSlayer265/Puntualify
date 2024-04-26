@@ -32,8 +32,10 @@ public class Menu extends javax.swing.JFrame {
         ConfSeg = new javax.swing.JButton();
         ComRegis = new javax.swing.JButton();
         SalBut = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -62,6 +64,11 @@ public class Menu extends javax.swing.JFrame {
         ComRegis.setBackground(new java.awt.Color(255, 102, 0));
         ComRegis.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
         ComRegis.setText("Comenzar registro de asistencia");
+        ComRegis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComRegisActionPerformed(evt);
+            }
+        });
         jPanel1.add(ComRegis, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 290, 70));
 
         SalBut.setBackground(new java.awt.Color(255, 102, 0));
@@ -72,6 +79,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(SalBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 70, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Flia_Padilla_Camargo\\Documents\\Programacion\\POO\\EMPRESA\\BDRegistro\\src\\main\\java\\Imagenes\\4.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,7 +141,12 @@ public class Menu extends javax.swing.JFrame {
         Formularios.LogIn Inicio = new Formularios.LogIn();
         Inicio.setVisible(true);
         Inicio.setLocationRelativeTo(null);
+        dispose();
     }//GEN-LAST:event_SalButActionPerformed
+
+    private void ComRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComRegisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComRegisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +158,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton EditEmp;
     private javax.swing.JButton RepAsis;
     private javax.swing.JButton SalBut;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

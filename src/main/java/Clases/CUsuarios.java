@@ -58,17 +58,17 @@ public class CUsuarios {
             }
              
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al mostrar sexo: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al mostrar Ingreso: " + e.toString());
         } finally {
             objetoConexion.cerrarConexion();
         }
     }
 
-    public void  AgregarUsuario(JTextField nombres,JTextField apellidos,JComboBox combosexo,JTextField edad, JDateChooser fnacimiento, File foto ){
+    public void  AgregarUsuario(JTextField nombres,JTextField apellidos,JComboBox combosexo,JTextField edad, JDateChooser fnacimiento, File foto, JTextField Documento ){
     
         CConexion objetoConexion = new CConexion();
  
-        String consulta="INSERT INTO usuarios (nombres, apellidos, fkIngreso, edad, Fingreso, foto) VALUES (?, ?, ?, ?,?,?);";
+        String consulta="insert into usuarios (nombres, apellidos, fkIngreso, edad, Fingreso, foto, Documento) VALUES (?, ?, ?, ?,?,?,?);";
 
 
         try {
@@ -89,6 +89,8 @@ public class CUsuarios {
             cs.setDate(5,fechaSQL);
      
             cs.setBinaryStream(6, fis,(int)foto.length());
+            
+            cs.setString(7, Documento.getText());
      
              cs.execute();
      
@@ -96,7 +98,6 @@ public class CUsuarios {
         } 
         catch (HeadlessException | FileNotFoundException | NumberFormatException | SQLException e) {
             JOptionPane.showMessageDialog(null,"Error al guardar, error: "+e.toString());
-     
         }
 }
 
@@ -115,10 +116,11 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
     modelo.addColumn("Edad");
     modelo.addColumn("F.ingreso"); 
     modelo.addColumn("Foto");
+    modelo.addColumn("Documento");
  
     tablaTotalUsuarios.setModel(modelo);
     
-        sql = "SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, Ingreso.Ingreso, usuarios.edad, usuarios.Fingreso, usuarios.foto FROM usuarios INNER JOIN Ingreso ON usuarios.fkIngreso = Ingreso.id;";
+        sql = "SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, Ingreso.Ingreso, usuarios.edad, usuarios.Fingreso, usuarios.foto, usuarios.Documento FROM usuarios INNER JOIN Ingreso ON usuarios.fkIngreso = Ingreso.id;";
  
     try {
         Statement st = objetoConexion.estableceConexion().createStatement();
@@ -135,6 +137,7 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy;");
             java.sql.Date fechaSQL = rs.getDate("Fingreso");
             String nuevaFecha = sdf.format(fechaSQL);
+            String Doc = rs.getString("Documento");
      
             byte [] imageBytes = rs.getBytes("foto");
             Image foto = null;
@@ -148,7 +151,7 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
                     JOptionPane.showMessageDialog(null,"Eror:"+ e.toString());
                 }
          
-                modelo.addRow(new Object[]{id,nombres,apellidos,sexo,edad,nuevaFecha,foto});
+                modelo.addRow(new Object[]{id,nombres,apellidos,sexo,edad,nuevaFecha,foto,Doc});
             }
      
             tablaTotalUsuarios.setModel(modelo);
@@ -204,11 +207,10 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
         }
     }
 */
-    public void Seleccionar(JTable tbusuarios, JTextField txtid, JTextField txtnombres, JTextField txtapellidos, JComboBox<String> cbsexo, JTextField txtedad, JDateChooser dffechanacimiento, JLabel lblimagen) {
+    public void Seleccionar(JTable tbusuarios, JTextField txtid, JTextField txtnombres, JTextField txtapellidos, JComboBox<String> cbsexo, JTextField txtedad, JDateChooser dffechanacimiento, JLabel lblimagen, JTextField txtDocumento) {
        
         int fila = tbusuarios.getSelectedRow();
-        
-        if(fila>=1){
+        if(fila>=0){
             
             txtid.setText(tbusuarios.getValueAt(fila,0).toString());
             txtnombres.setText(tbusuarios.getValueAt(fila,1).toString());
@@ -230,6 +232,7 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
             
             lblimagen.setIcon(new ImageIcon(imagenEscalada));
             
+            txtDocumento.setText(tbusuarios.getValueAt(fila, 7).toString());
             
             try {
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -240,14 +243,13 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
             } catch (ParseException e) {
                 JOptionPane.showMessageDialog(null, "Error al seleccionar, error:" + e.toString());
             }
-            
-        
         }
     }  
-public void ModificarUsuarios(JTextField id, JTextField nombres, JTextField apellidos, JComboBox combosexo, JTextField edad, JDateChooser fnacimiento, File foto) {
+    
+public void ModificarUsuarios(JTextField id, JTextField nombres, JTextField apellidos, JComboBox combosexo, JTextField edad, JDateChooser fnacimiento, File foto, JTextField Documento) {
     CConexion objetoConexion = new CConexion();
     
-    String consulta = "UPDATE Usuarios SET nombres=?, apellidos=?, fkIngreso=?, edad=?, Fingreso=?, foto=? WHERE id=?";
+    String consulta = "UPDATE Usuarios SET nombres=?, apellidos=?, fkIngreso=?, edad=?, Fingreso=?, foto=?, Documento=? WHERE id=?";
     
     try {
         FileInputStream fis = new FileInputStream(foto);
@@ -266,8 +268,8 @@ public void ModificarUsuarios(JTextField id, JTextField nombres, JTextField apel
         ps.setDate(5, fechaSQL);
         
         ps.setBinaryStream(6, fis, (int) foto.length());
-        
-        ps.setInt(7, Integer.parseInt(id.getText()));
+        ps.setString(7, Documento.getText());
+        ps.setInt(8, Integer.parseInt(id.getText()));
         
         ps.executeUpdate();
         
@@ -301,10 +303,11 @@ public void ModificarUsuarios(JTextField id, JTextField nombres, JTextField apel
         }
     }
     
-    public void limpriarCampos(JTextField id,JTextField nombres,JTextField apellidos,JTextField edad, JDateChooser Fingreso, JTextField rutaimagen,JLabel imagencontenido){
+    public void limpriarCampos(JTextField id,JTextField nombres,JTextField apellidos,JTextField edad, JDateChooser Fingreso, JTextField rutaimagen,JLabel imagencontenido, JTextField Documento){
      id.setText("");
      nombres.setText("");
      apellidos.setText("");
+     Documento.setText("");
      
      Calendar calendario = Calendar.getInstance();
      

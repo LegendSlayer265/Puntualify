@@ -23,8 +23,10 @@ public class LogIn extends javax.swing.JFrame {
         Contratxt = new javax.swing.JPasswordField();
         BtnLogIn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -35,8 +37,8 @@ public class LogIn extends javax.swing.JFrame {
         Contraseña.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
         Contraseña.setText("Contraseña");
         jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
-        jPanel1.add(Usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 250, 30));
-        jPanel1.add(Contratxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 272, 250, 30));
+        jPanel1.add(Usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 250, -1));
+        jPanel1.add(Contratxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 250, 20));
 
         BtnLogIn.setBackground(new java.awt.Color(255, 102, 0));
         BtnLogIn.setFont(new java.awt.Font("Roboto Black", 0, 16)); // NOI18N
@@ -46,7 +48,7 @@ public class LogIn extends javax.swing.JFrame {
                 BtnLogInActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 250, 30));
+        jPanel1.add(BtnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 240, 20));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -62,6 +64,10 @@ public class LogIn extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 390, 80, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Flia_Padilla_Camargo\\Documents\\Programacion\\POO\\EMPRESA\\BDRegistro\\src\\main\\java\\Imagenes\\21.png")); // NOI18N
+        jLabel1.setText(".");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 880, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,6 +108,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField Contratxt;
     private javax.swing.JTextField Usertxt;
     private javax.swing.JLabel Usuario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

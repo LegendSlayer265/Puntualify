@@ -35,8 +35,10 @@ public class Seguridad extends javax.swing.JFrame {
         Passtxt2 = new javax.swing.JPasswordField();
         ButConf = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -57,14 +59,14 @@ public class Seguridad extends javax.swing.JFrame {
                 UsertxtActionPerformed(evt);
             }
         });
-        jPanel1.add(Usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 300, 30));
-        jPanel1.add(Passtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 238, 300, 30));
-        jPanel1.add(Passtxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 312, 300, 30));
+        jPanel1.add(Usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 300, 20));
+        jPanel1.add(Passtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 300, 20));
+        jPanel1.add(Passtxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 312, 300, 20));
 
         ButConf.setBackground(new java.awt.Color(255, 102, 0));
         ButConf.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         ButConf.setText("Confirmar cambios");
-        jPanel1.add(ButConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 390, 300, -1));
+        jPanel1.add(ButConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 310, 30));
 
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -72,17 +74,21 @@ public class Seguridad extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(786, 460, 80, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 80, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Flia_Padilla_Camargo\\Documents\\Programacion\\POO\\EMPRESA\\BDRegistro\\src\\main\\java\\Imagenes\\16.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -110,6 +116,7 @@ public class Seguridad extends javax.swing.JFrame {
     private javax.swing.JPasswordField Passtxt2;
     private javax.swing.JTextField Usertxt;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

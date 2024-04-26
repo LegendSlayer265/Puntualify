@@ -62,6 +62,8 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 102, 0));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuarios"));
@@ -100,7 +102,7 @@ public class FormPrincipal extends javax.swing.JFrame {
                 txtidActionPerformed(evt);
             }
         });
-        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 12, 100, 20));
+        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 100, 10));
         jPanel1.add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 100, 20));
         jPanel1.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 42, 100, 20));
         jPanel1.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 72, 100, 20));
@@ -157,8 +159,11 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 210, 210, 272));
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -2, 240, 520));
+
         jPanel3.setBackground(new java.awt.Color(0, 0, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Usuarios"));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbusuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,86 +183,46 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbusuarios);
 
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 34, 708, 440));
+
+        jButton1.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(17, 17, 17))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(16, 16, 16))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, -4, 730, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbusuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbusuariosMouseClicked
         Clases.CUsuarios objetoUsuarios = new Clases.CUsuarios();
-        objetoUsuarios.Seleccionar(tbusuarios, txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, lblimagen);
+        objetoUsuarios.Seleccionar(tbusuarios, txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, lblimagen, txtDocumento);
     }//GEN-LAST:event_tbusuariosMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         Clases.CUsuarios objetoUsuarios = new Clases.CUsuarios();
         objetoUsuarios.EliminarUsuario(txtid);
-        objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen);
+        objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen, txtDocumento);
         objetoUsuarios.MostrarUsuarios(tbusuarios);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         Clases.CUsuarios objetoUsuarios = new Clases.CUsuarios();
-        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
-        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
-        objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen);
+        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado, txtDocumento);
+        objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen, txtDocumento);
         objetoUsuarios.MostrarUsuarios(tbusuarios);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Clases.CUsuarios objetoUsuarios = new Clases.CUsuarios();
-        objetoUsuarios.AgregarUsuario(txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
-        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado);
-        objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen);
+        objetoUsuarios.AgregarUsuario(txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado, txtDocumento );
+        objetoUsuarios.ModificarUsuarios(txtid, txtnombres, txtapellidos, cbIngreso, txtedad, dffechanacimiento, archivoseleccionado, txtDocumento);
+        objetoUsuarios.limpriarCampos(txtid, txtnombres, txtapellidos, txtedad, dffechanacimiento, txtrutaimagen, lblimagen, txtDocumento);
         objetoUsuarios.MostrarUsuarios(tbusuarios);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
