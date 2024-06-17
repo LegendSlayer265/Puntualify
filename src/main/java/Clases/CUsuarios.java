@@ -44,7 +44,7 @@ public class CUsuarios {
     public void MostrarSexoCombo(JComboBox comboSexo) { // Corregir el nombre del método
         Clases.CConexion objetoConexion = new Clases.CConexion();
  
-        String sql = "select * from Ingreso;"; // Corregir la consulta SQL
+        String sql = "select * from Ingreso;"; 
         
         try (Statement st = objetoConexion.estableceConexion().createStatement()) {
             ResultSet rs = st.executeQuery(sql);
@@ -52,7 +52,7 @@ public class CUsuarios {
      
             while (rs.next()) {
                 String nombreSexo = rs.getString("Ingreso");
-                int idSexo = rs.getInt("id"); // Usar una variable local para idSexo
+                int idSexo = rs.getInt("id"); 
                 comboSexo.addItem(nombreSexo);
                 comboSexo.putClientProperty(nombreSexo, idSexo);
             }
