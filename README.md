@@ -13,37 +13,27 @@ Sprint 2:
 - El empleador desea tener un apartado especifico para la creación de perfiles de los trabajadores.
 - El empleador desea poder guardar la informacion personal de sus empleados.
 - El empleador desea que el acceso a la información personal de sus empleados sea restringido.
+- El empleador desea poder modificar la información de perfiles guardados
+- El empleador desea poder eliminar los perfiles de los trabajadores
 
-Next Tasks:
+Sprint 3:
 
-El empleador desea mantener un registro de asistencia.
+- El empleador desea utilizar el reconocimiento facial como método para tomar la asistencia.
+- 
+- El empleador desea poder ajustar el tiempo límite de asistencia óptima
+- El empleador desea registrar el incumplimiento de tiempo en su sistema.
 
-El empleador desea utilizar el reconocimiento facial como método para tomar la asistencia.
+Sprint 4: 
 
-El empleador desea registrar el incumplimiento de tiempo en su sistema.
-
-El empleador desea recibir una notificación después de 20 minutos desde el inicio del registro de asistencia.
+- El empleador desea recibir una notificación después de 20 minutos desde el inicio del registro de asistencia.
+- El empleador desea que la notificacion de finalizacion del proceso de toma de asistencia llegue a un dispositivo remoto
 
 El empleador quiere seguridad de la información de asistencia. ****
 
-El empleador desea contar con una sección para administrar la información de los perfiles de los trabajadores.
+Sprint 5:
 
-El empleador desea que el acceso a la información sea exclusivo.
+- El empleador desea guardar los registros de asistencia diarios
+- El empleador desea poder acceder a los registros de asistencia de días pasados.
+- El empleador desea poder filtrar la información del registro de asistencia
 
-El empleador desea un login para acceder a los registros de asistencia
 
-El empleador desea poder ajustar el tiempo límite de asistencia óptima
-
-El empleador desea guardar los registros de asistencia diarios
-
-El empleador desea poder acceder a los registros de asistencia de días pasados.
-
-El empleador desea poder filtrar la información del registro de asistencia
-
-El empleador desea poder modificar la información de perfiles guardados
-
-El empleador desea poder eliminar los perfiles de los trabajadores
-
-El empleador desea tener un menú principal que permita acceder a diversas opciones del programa.
-
-El empleador desea que el acceso a la información sea exclusivo.
