@@ -28,35 +28,38 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  *
  * @author juanl
  */
 public class CUsuarios {
+    private DatabaseReference databaseReference;
     
     int idSexo;
 
     public void establecerIdSexo(int idSexo) {
         this.idSexo = idSexo; // Corregir el nombre de la variable
     }
-       
+    
     public void MostrarSexoCombo(JComboBox comboSexo) { // Corregir el nombre del método
         Clases.CConexion objetoConexion = new Clases.CConexion();
- 
+
         String sql = "select * from Ingreso;"; 
         
         try (Statement st = objetoConexion.estableceConexion().createStatement()) {
             ResultSet rs = st.executeQuery(sql);
             comboSexo.removeAllItems();
-     
+    
             while (rs.next()) {
                 String nombreSexo = rs.getString("Ingreso");
                 int idSexo = rs.getInt("id"); 
                 comboSexo.addItem(nombreSexo);
                 comboSexo.putClientProperty(nombreSexo, idSexo);
             }
-             
+            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al mostrar Ingreso: " + e.toString());
         } finally {
@@ -67,7 +70,7 @@ public class CUsuarios {
     public void  AgregarUsuario(JTextField nombres,JTextField apellidos,JComboBox combosexo,JTextField edad, JDateChooser fnacimiento, File foto, JTextField Documento ){
     
         CConexion objetoConexion = new CConexion();
- 
+
         String consulta="insert into usuarios (nombres, apellidos, fkIngreso, edad, Fingreso, foto, Documento) VALUES (?, ?, ?, ?,?,?,?);";
 
 
@@ -76,24 +79,24 @@ public class CUsuarios {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             cs.setString(1, nombres.getText());
             cs.setString(2, apellidos.getText());
-     
+    
             int idsexo= (int) combosexo.getClientProperty(combosexo.getSelectedItem());
-     
+    
             cs.setInt(3, idsexo);
             cs.setInt(4, Integer.parseInt(edad.getText()));
-     
+    
             Date fechaSeleccionada = fnacimiento.getDate();
-     
+    
             java.sql.Date fechaSQL = new java.sql.Date(fechaSeleccionada.getTime());
-     
+    
             cs.setDate(5,fechaSQL);
-     
+    
             cs.setBinaryStream(6, fis,(int)foto.length());
             
             cs.setString(7, Documento.getText());
-     
-             cs.execute();
-     
+    
+            cs.execute();
+    
             JOptionPane.showMessageDialog(null,"Se guardo el usuario correctamente");
         } 
         catch (HeadlessException | FileNotFoundException | NumberFormatException | SQLException e) {
@@ -104,11 +107,11 @@ public class CUsuarios {
 public void MostrarUsuarios(JTable tablaTotalUsuarios){            
     
     Clases.CConexion objetoConexion = new Clases.CConexion();
- 
+
     DefaultTableModel modelo = new DefaultTableModel();
- 
+
     String sql="";
- 
+
     modelo.addColumn("ID");
     modelo.addColumn("Nombres");
     modelo.addColumn("Apellidos");
@@ -117,51 +120,51 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
     modelo.addColumn("F.ingreso"); 
     modelo.addColumn("Foto");
     modelo.addColumn("Documento");
- 
+
     tablaTotalUsuarios.setModel(modelo);
     
         sql = "SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, Ingreso.Ingreso, usuarios.edad, usuarios.Fingreso, usuarios.foto, usuarios.Documento FROM usuarios INNER JOIN Ingreso ON usuarios.fkIngreso = Ingreso.id;";
- 
+
     try {
         Statement st = objetoConexion.estableceConexion().createStatement();
         ResultSet rs = st.executeQuery(sql);
-     
+    
         while(rs.next()){
-         
+        
             String id = rs.getString("id");
             String nombres = rs.getString("nombres");
             String apellidos = rs.getString("apellidos");
             String sexo = rs.getString("Ingreso");
             String edad = rs.getString("edad");
-     
+    
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy;");
             java.sql.Date fechaSQL = rs.getDate("Fingreso");
             String nuevaFecha = sdf.format(fechaSQL);
             String Doc = rs.getString("Documento");
-     
+    
             byte [] imageBytes = rs.getBytes("foto");
             Image foto = null;
-     
+    
             if (imageBytes !=null){
-     
+    
                 try {
                     ImageIcon imageIcon = new ImageIcon(imageBytes);
                     foto= imageIcon.getImage();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null,"Eror:"+ e.toString());
                 }
-         
+        
                 modelo.addRow(new Object[]{id,nombres,apellidos,sexo,edad,nuevaFecha,foto,Doc});
             }
-     
+    
             tablaTotalUsuarios.setModel(modelo);
         }    
     } catch (HeadlessException | SQLException e) {
-     
+    
         JOptionPane.showMessageDialog(null,"Eror al mostrar usuarios, error:"+ e.toString());
         
     } finally{
- 
+
         objetoConexion.cerrarConexion();
     }
 }
@@ -191,8 +194,8 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
             Image imagenEscalada = originalIcon.getImage().getScaledInstance(lblanchura,lblaltura, Image.SCALE_SMOOTH);
             
             foto.setIcon(new ImageIcon(imagenEscalada));
-            
-            
+            */
+            /*
             try {
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Date fechaDate = sdf.parse(fechaString);
@@ -206,9 +209,9 @@ public void MostrarUsuarios(JTable tablaTotalUsuarios){
         
         }
     }
-*/
+ */
     public void Seleccionar(JTable tbusuarios, JTextField txtid, JTextField txtnombres, JTextField txtapellidos, JComboBox<String> cbsexo, JTextField txtedad, JDateChooser dffechanacimiento, JLabel lblimagen, JTextField txtDocumento) {
-       
+    
         int fila = tbusuarios.getSelectedRow();
         if(fila>=0){
             
@@ -282,39 +285,39 @@ public void ModificarUsuarios(JTextField id, JTextField nombres, JTextField apel
     }
 }
     public void EliminarUsuario(JTextField id){
-     
+    
         CConexion objetoConexion = new CConexion();
-     
+    
         String consulta="DELETE FROM usuarios WHERE usuarios.id=?;";
-     
+    
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-             
+            
             cs.setInt(1,Integer.parseInt(id.getText()));
-             
+            
             cs.execute();
-             
+            
             JOptionPane.showMessageDialog(null,"Se elimino correctamente");
-             
+            
         } catch (HeadlessException | NumberFormatException | SQLException e) {
-             JOptionPane.showMessageDialog(null, "No se elimino correctamente, error"+e.toString());
+            JOptionPane.showMessageDialog(null, "No se elimino correctamente, error"+e.toString());
         } finally {
-             objetoConexion.cerrarConexion();
+            objetoConexion.cerrarConexion();
         }
     }
     
     public void limpriarCampos(JTextField id,JTextField nombres,JTextField apellidos,JTextField edad, JDateChooser Fingreso, JTextField rutaimagen,JLabel imagencontenido, JTextField Documento){
-     id.setText("");
-     nombres.setText("");
-     apellidos.setText("");
-     Documento.setText("");
-     
-     Calendar calendario = Calendar.getInstance();
-     
-     Fingreso.setDate(calendario.getTime());
-     rutaimagen.setText("");
-     
-     imagencontenido.setIcon(null);
+    id.setText("");
+    nombres.setText("");
+    apellidos.setText("");
+    Documento.setText("");
+    
+    Calendar calendario = Calendar.getInstance();
+    
+    Fingreso.setDate(calendario.getTime());
+    rutaimagen.setText("");
+    
+    imagencontenido.setIcon(null);
     }
 }
 

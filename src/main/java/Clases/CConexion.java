@@ -14,7 +14,7 @@ public class CConexion {
     Connection conectar = null;
     
     String usuario="root";
-    String contraseña="";
+    String contrasena="";
     String bd="bdusuarios1";
     String ip="127.0.0.1";
     String puerto="3306";
@@ -23,9 +23,10 @@ public class CConexion {
     public Connection estableceConexion (){
         
         try {
-           Class.forName("com.mysql.jdbc.Driver");
-           conectar = DriverManager.getConnection(cadena,usuario,contraseña);
-           
+        
+            Class.forName("com.mysql.jdbc.Driver");
+            conectar = DriverManager.getConnection(cadena,usuario,contrasena);
+            
             JOptionPane.showMessageDialog(null,"se conecto a la BD correctamente");
         } catch (Exception e) {
         

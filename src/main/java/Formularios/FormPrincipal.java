@@ -17,11 +17,11 @@ public class FormPrincipal extends javax.swing.JFrame {
         
         initComponents();
 
-         Clases.CUsuarios objetoUsuario = new Clases.CUsuarios();
-         objetoUsuario.MostrarSexoCombo(cbIngreso);
-         objetoUsuario.MostrarUsuarios(tbusuarios);
-         
-         txtrutaimagen.setEnabled(false);
+            Clases.CUsuarios objetoUsuario = new Clases.CUsuarios();
+            objetoUsuario.MostrarSexoCombo(cbIngreso);
+            objetoUsuario.MostrarUsuarios(tbusuarios);
+            
+            txtrutaimagen.setEnabled(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
